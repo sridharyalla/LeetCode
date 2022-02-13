@@ -17,7 +17,7 @@ class Solution {
             int val = map.getOrDefault(n-rev,0);
             map.put(n-rev , val+1);
             
-            result = (result+val) % 1000_000_007;
+            result = (result+val) % 1_000_000_007;
         }
         return result;
     }
