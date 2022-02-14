@@ -15,6 +15,9 @@
  */
 class Solution {
     public List<String> binaryTreePaths(TreeNode root) {
+        if( root == null)
+            return new ArrayList<String>();
+        
         List<String> ans = new ArrayList<>();
         traverse(root,"",ans);
         return ans;
@@ -23,13 +26,10 @@ class Solution {
         if(root == null)
             return;
         
-        if(current.equals(""))
-            current += root.val;
-        else
-            current += "->" +root.val;
-        
         if(root.left == null && root.right == null)
-            result.add(current);
+            result.add(current+root.val);
+        else
+            current += root.val +"->";
         
         traverse(root.left, current, result);
         traverse(root.right, current, result);
