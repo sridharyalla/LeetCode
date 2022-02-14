@@ -19,7 +19,6 @@ class Solution {
         if( root == null)
             return 0;
         
-        
         int sum=0;
          if ( root.left != null){
              if(root.val %2 == 0 && root.left.left != null)
