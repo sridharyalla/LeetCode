@@ -21,11 +21,10 @@ class Solution {
     }
     
     void helper( TreeNode node, int sum) {
-        
+        if( node == null)
+            return;
         if( node != null){
             sum = (sum * 10) + node.val;
-        } else {
-            return;
         }
         if( node.left == null && node.right == null){
             result += sum;
