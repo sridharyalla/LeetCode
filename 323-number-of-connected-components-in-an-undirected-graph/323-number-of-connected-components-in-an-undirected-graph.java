@@ -24,17 +24,22 @@ class Solution {
         }
         
         int find(int x) {
-            int root = x;
-            while(parent[x] != x){
-                x = parent[x];
-            }
-            //compression
-            while( x != root){
-                int temp = parent[root];
-                parent[root] = x;
-                root = temp;
-            }
-            return x;
+
+            if( x == parent[x])
+                return x;
+            parent[x] = find(parent[x]);
+            return parent[x];
+            // int root = x;
+            // while(parent[x] != x){
+            //     x = parent[x];
+            // }
+            // //compression
+            // while( x != root){
+            //     int temp = parent[root];
+            //     parent[root] = x;
+            //     root = temp;
+            // }
+            // return x;
         }
         
         void union(int x, int y) {
