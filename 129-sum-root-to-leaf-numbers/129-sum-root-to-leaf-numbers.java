@@ -23,9 +23,8 @@ class Solution {
     void helper( TreeNode node, int sum) {
         if( node == null)
             return;
-        if( node != null){
-            sum = (sum * 10) + node.val;
-        }
+        
+        sum = (sum * 10) + node.val;
         if( node.left == null && node.right == null){
             result += sum;
             return;
