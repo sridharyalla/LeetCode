@@ -1,11 +1,11 @@
 class Solution {
     public int countPaths(int n, int[][] roads) {
-        Map<Integer,Set<long[]>> graph = new HashMap<>();
+        Map<Integer,List<long[]>> graph = new HashMap<>();
         long mod=(int)1e9+7;
         
         for(int[] road : roads){
-            graph.computeIfAbsent(road[0], v -> new HashSet<long[]>()).add( new long[] {road[1],road[2]});
-            graph.computeIfAbsent(road[1], v -> new HashSet<long[]>()).add( new long[] {road[0],road[2]});
+            graph.computeIfAbsent(road[0], v -> new ArrayList<long[]>()).add( new long[] {road[1],road[2]});
+            graph.computeIfAbsent(road[1], v -> new ArrayList<long[]>()).add( new long[] {road[0],road[2]});
         }
         
         PriorityQueue<long[]> q = new PriorityQueue<>(Comparator.comparingLong( a -> a[1]));
@@ -23,7 +23,7 @@ class Solution {
             long sourceNode = current[0];
             long sourceNodeMinDist = current[1];
             
-            Set<long[]> neighbours = graph.get((int)sourceNode);
+            List<long[]> neighbours = graph.get((int)sourceNode);
             if( neighbours == null)
                 continue;
             
