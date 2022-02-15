@@ -20,9 +20,6 @@ class Solution {
                 q.add(j+1);
                 while(!q.isEmpty()){
 
-                    int size = q.size();
-
-                    for(int i=0; i<size; i++){
                         int current = q.poll();
                         visited[current-1] = true;
                         List<Integer> neighbours = graph.get(current);
@@ -39,8 +36,8 @@ class Solution {
                                     q.add(neighbour);
                             }
                         }
-                    }
-                }                
+                    
+                }
             } 
         }
         return true;
