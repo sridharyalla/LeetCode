@@ -20,23 +20,22 @@ class Solution {
                 q.add(j+1);
                 while(!q.isEmpty()){
 
-                        int current = q.poll();
-                        visited[current-1] = true;
-                        List<Integer> neighbours = graph.get(current);
+                    int current = q.poll();
+                    visited[current-1] = true;
+                    List<Integer> neighbours = graph.get(current);
 
-                        if( neighbours == null)
-                            continue;
+                    if( neighbours == null)
+                        continue;
 
-                        for(int neighbour : neighbours){
-                            if( colors[neighbour-1] != -1 && colors[neighbour-1] == colors[current-1])
-                                return false;
-                            else {
-                                colors[neighbour-1] = colors[current-1] == 1 ? 0 : 1;
-                                if( !visited[neighbour-1])
-                                    q.add(neighbour);
-                            }
+                    for(int neighbour : neighbours){
+                        if( colors[neighbour-1] != -1 && colors[neighbour-1] == colors[current-1])
+                            return false;
+                        else {
+                            colors[neighbour-1] = colors[current-1] == 1 ? 0 : 1;
+                            if( !visited[neighbour-1])
+                                q.add(neighbour);
                         }
-                    
+                    }
                 }
             } 
         }
