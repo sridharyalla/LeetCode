@@ -27,9 +27,9 @@ class Solution {
         sum = (sum * 10) + node.val;
         helper( node.left, sum);
         helper( node.right, sum);
+        
         if( node.left == null && node.right == null){
             result += sum;
-            return;
         }       
     }
 }
