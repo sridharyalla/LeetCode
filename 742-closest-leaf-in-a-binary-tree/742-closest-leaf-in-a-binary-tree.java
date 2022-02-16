@@ -41,15 +41,11 @@ class Solution {
                 continue;
             
             for(TreeNode neigbour : neighbours) {
-                
-                
                 q.add(neigbour);
-                
             }
-            
         }
         
-        return 1;
+        return -1;
     }
     
      void dfs(TreeNode node, Map<Integer, List<TreeNode>> graph, Queue<TreeNode> q, int k){
