@@ -15,8 +15,8 @@ class Solution {
             
             int node = q.poll();
             
-            if( node < 0 || node >= arr.length)
-                continue;
+            // if( node < 0 || node >= arr.length)
+            //     continue;
                         
             if(arr[node] == 0)
                 return true;
@@ -26,8 +26,10 @@ class Solution {
             
             visited[node] = true;
             
-            q.add(node + arr[node]);
-            q.add(node - arr[node]);
+            if( node + arr[node] >= 0 && node + arr[node] < arr.length)
+                q.add(node + arr[node]);
+            if( node - arr[node] >= 0 && node - arr[node] < arr.length)
+                q.add(node - arr[node]);
         }
         
         return false;
