@@ -16,8 +16,8 @@ class Solution {
             result = Math.min(result,l-f);
             ts.add(l/2);
             ts.remove(l);
-            
         }
+        
         return Math.min(result, ts.last() - ts.first());
     }
 }
