@@ -3,7 +3,7 @@ class Solution {
         if( finalSum%2 != 0  )
             return new ArrayList<Long>();
 
-        TreeSet<Long> set = new TreeSet<>(Comparator.reverseOrder());
+        LinkedList<Long> set = new LinkedList<>();
 
         Set<Long> result = new HashSet<>();
 
@@ -19,9 +19,9 @@ class Solution {
 
         long dif = sum -f;
         if( dif > 0)
-            set.remove(sum-f);
+            set.pollFirst();
         else {
-            long temp = set.first();
+            long temp = set.pollLast();
             set.remove(temp);
             set.add(temp+(-dif));
         }
