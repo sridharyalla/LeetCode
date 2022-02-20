@@ -7,7 +7,7 @@ class Solution {
     }
 
     void backtrack (String s, int pos, HashSet<String> set){
-        if( pos == s.length()){
+        if( pos >= s.length()){
             res= Math.max(res, set.size());
         }
 
