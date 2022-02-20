@@ -37,13 +37,11 @@ class Solution {
                         q.add(extra.poll());
                         popCount++;
                     }
-                    prev = c;
-                    count = 1;
                 } else {
                     sb.append(c);
-                    prev = c;
-                    count=1;
                 }
+                prev = c;
+                count=1;
             }
         }
         return sb.toString();
