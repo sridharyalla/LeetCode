@@ -12,7 +12,7 @@ class Solution {
     public String repeatLimitedString(String s, int repeatLimit) {
 
         PriorityQueue<Character> q = new PriorityQueue<>(Comparator.reverseOrder());
-        PriorityQueue<Character> extra = new PriorityQueue<>(Comparator.reverseOrder());
+        Stack<Character> extra = new Stack<>();
         for(char c : s.toCharArray()){
             q.add(c);
         }
@@ -28,13 +28,13 @@ class Solution {
                 sb.append(c);
                 count++;
             } else if (prev == c ) {
-                extra.add(c);
+                extra.push(c);
             } else {
                 if (!extra.isEmpty() && extra.peek() > c){
                     sb.append(c);
                     int popCount =0;
                     while (!extra.isEmpty() && extra.peek() > c && popCount < repeatLimit) {
-                        q.add(extra.poll());
+                        q.add(extra.pop());
                         popCount++;
                     }
                 } else {
