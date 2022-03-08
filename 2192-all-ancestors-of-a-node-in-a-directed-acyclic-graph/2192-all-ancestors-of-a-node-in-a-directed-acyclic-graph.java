@@ -15,11 +15,11 @@ class Solution {
         
         Map<Integer,Set<Integer>> graph = new HashMap<>();
         int[] indegree = new int[n];
-        List<List<Integer>>  result = new ArrayList<>();
+        List<Set<Integer>>  result = new ArrayList<>();
 
         for(int i =0 ;i < n;i++){
             graph.computeIfAbsent(i, v-> new HashSet<Integer>());
-            result.add(new ArrayList<>());
+            result.add(new TreeSet<>());
         }
         
         for(int[] edge : edges){
@@ -41,22 +41,20 @@ class Solution {
              
             for(int neighbour : graph.get(current)){
                 result.get(neighbour).add(current);
-                for(int p : result.get(current)){
-                    if( !result.get(neighbour).contains(p)){
-                        result.get(neighbour).add(p);
-                    }
-                }
+                result.get(neighbour).addAll(result.get(current));
                 indegree[neighbour]--;
                 if( indegree[neighbour] == 0){
                     q.add(neighbour);
                 }
+                
             }
         }
         
+        List<List<Integer>> ans = new ArrayList<>();
         for(int i =0; i < n; i++){
-            Collections.sort(result.get(i));
+            ans.add(new ArrayList<Integer>(result.get(i)));
         }
-        return result;
+        return ans;
     }
     
 }
