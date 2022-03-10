@@ -20,43 +20,20 @@ class Solution {
         int carry =0;
         ListNode head = new ListNode();
         ListNode result = head;
-        while( l1 != null && l2 != null){
-            int sum = l1.val+l2.val+carry;
+        while( l1 != null || l2 != null){
+            int x = l1 == null ? 0 : l1.val;
+            int y = l2 == null ? 0 : l2.val;
+            int sum = x+y+carry;
             carry =0;
             if( sum > 9){
                 carry =1;
                 sum %= 10;
             }
-            l1 = l1.next;
-            l2 = l2.next;
+            if( l1 != null) l1 = l1.next;
+            if( l2 != null) l2 = l2.next;
             head.next = new ListNode(sum);
             head = head.next;
         }
-        
-        while( l1 != null){
-            int sum = l1.val+carry;
-            carry =0;
-            if( sum > 9){
-                carry =1;
-                sum %= 10;
-            }
-            l1 = l1.next;
-            head.next = new ListNode(sum); 
-            head = head.next;
-        }
-
-        while( l2 != null){
-            int sum = l2.val+carry;
-            carry =0;
-            if( sum > 9){
-                carry =1;
-                sum %= 10;
-            }
-            l2 = l2.next;
-            head.next = new ListNode(sum); 
-            head = head.next;
-        }
-        
         if (carry != 0){
             head.next = new ListNode(carry);
         }
