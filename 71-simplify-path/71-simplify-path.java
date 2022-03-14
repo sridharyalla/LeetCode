@@ -15,12 +15,12 @@ class Solution {
                 stk.addLast(dir);
             }
         }
-        String out = "";
+        StringBuffer out = new StringBuffer("");
         while( !stk.isEmpty()){
-            out += "/"+stk.removeFirst();
+            out.append("/"+stk.removeFirst());
         }
-        if( out.equals(""))
-            out = "/";
-        return out;
+        if(out.isEmpty())
+            out.append('/');
+        return out.toString();
     }
 }
