@@ -15,7 +15,7 @@ class Solution {
                 stk.addLast(dir);
             }
         }
-        StringBuffer out = new StringBuffer("");
+        StringBuilder out = new StringBuilder("");
         while( !stk.isEmpty()){
             out.append("/"+stk.removeFirst());
         }
