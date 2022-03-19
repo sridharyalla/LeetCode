@@ -8,9 +8,9 @@ class Solution {
         }
         double target = sum/2;
         int result = 0;
-        while( sum > target){
+        while( target > 0){
             double val = pq.poll()/2;
-            sum -= val;
+            target -= val;
             pq.offer(val);
             result++;
         }
