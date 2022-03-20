@@ -11,10 +11,11 @@ class Solution {
         
         int r=0;
         int count =0;
-        for(char c : d.toCharArray()){
-            if( c=='R'){
+        char[] s = d.toCharArray();
+        for(int i=0; i< s.length; i++){
+            if( s[i]=='R'){
                 r++;
-            }else if( c == 'L'){
+            }else if( s[i] == 'L'){
                 count = count + (r);
                 r=0;
             } else {
@@ -24,7 +25,7 @@ class Solution {
         }
         int l=0;
         for(int i=d.length()-1; i>=0; i--){
-            if( d.charAt(i)=='L'){
+            if( s[i]=='L'){
                 l++;
             }else{
                 count = count + l;
