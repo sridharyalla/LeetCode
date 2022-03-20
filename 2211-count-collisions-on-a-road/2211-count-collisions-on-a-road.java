@@ -6,10 +6,7 @@ class Solution {
         for(int i=0; i< s.length; i++){
             if( s[i]=='R'){
                 r++;
-            }else if( s[i] == 'L'){
-                count = count + (r);
-                r=0;
-            } else {
+            }else {
                 count += r;
                 r=0;
             }
@@ -19,7 +16,7 @@ class Solution {
             if( s[i]=='L'){
                 l++;
             }else{
-                count = count + l;
+                count +=  l;
                 l=0;
             }
         }        
