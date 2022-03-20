@@ -1,14 +1,5 @@
 class Solution {
     public int countCollisions(String d) {
-        /**
-        R L R S L L
-        1 1 
-        
-        "L L R L R L L S L R L L S L SSSS"
-               2   2 0 0 0   2
-                                 1  
-        **/
-        
         int r=0;
         int count =0;
         char[] s = d.toCharArray();
