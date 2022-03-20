@@ -11,10 +11,10 @@ class Solution {
         
         int r=0;
         int count =0;
-        for(int i=0; i< d.length(); i++){
-            if( d.charAt(i)=='R'){
+        for(char c : d.toCharArray()){
+            if( c=='R'){
                 r++;
-            }else if( d.charAt(i) == 'L'){
+            }else if( c == 'L'){
                 count = count + (r);
                 r=0;
             } else {
