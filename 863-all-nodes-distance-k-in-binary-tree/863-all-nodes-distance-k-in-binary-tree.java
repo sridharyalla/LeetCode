@@ -40,13 +40,15 @@ class Solution {
     void buildGraph(Map<Integer,List<Integer>> graph, TreeNode node, TreeNode parent) {
         if( node == null)
             return;
-        if(parent != null)
-            graph.computeIfAbsent(node.val, v -> new ArrayList<Integer>()).add(parent.val);
-        if(node.left != null)
-            graph.computeIfAbsent(node.val, v -> new ArrayList<Integer>()).add(node.left.val);
         
+        List<Integer> neighbours = graph.computeIfAbsent(node.val, v -> new ArrayList<Integer>());
+        if(parent != null)
+            neighbours.add(parent.val);
+        if(node.left != null)
+            neighbours.add(node.left.val);
         if(node.right != null)
-            graph.computeIfAbsent(node.val, v -> new ArrayList<Integer>()).add(node.right.val);
+            neighbours.add(node.right.val);
+        
         buildGraph(graph, node.left,node);
         buildGraph(graph, node.right,node);
         }
