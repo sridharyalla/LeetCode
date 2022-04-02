@@ -2,17 +2,16 @@ class Solution {
     
     public String[] expand(String s) {
         List<String> input = new ArrayList<>();
-        char[] str = s.toCharArray();
         boolean expand = false;
         String buffer = "";
         for(int i=0; i < s.length(); i++){
-            if(str[i]== '{') {
+            if(s.charAt(i) == '{') {
                 expand = true;
-            } else if ( expand && str[i] >= 'a' &&  str[i]  <= 'z') {
-                buffer += str[i] ;
-            } else if(!expand && str[i]  >= 'a' &&  str[i]  <= 'z') {
-                input.add(""+str[i] );
-            } else if (str[i] == '}'){
+            } else if ( expand && s.charAt(i) >= 'a' &&  s.charAt(i) <= 'z') {
+                buffer += s.charAt(i);
+            } else if(!expand && s.charAt(i) >= 'a' &&  s.charAt(i) <= 'z') {
+                input.add(""+s.charAt(i));
+            } else if (s.charAt(i) == '}'){
                 input.add(buffer);
                 buffer = "";
                 expand = false;
