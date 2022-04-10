@@ -1,10 +1,10 @@
 class Solution {
     public int maximumProduct(int[] nums, int k) {
-        PriorityQueue<Long> pq = new PriorityQueue<>();
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
         
         
         for(int n : nums){
-            pq.add((long)n);
+            pq.add(n);
         }
         
         for(int i=0; i < k;i++){
