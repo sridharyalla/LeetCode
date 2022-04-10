@@ -11,7 +11,6 @@ class Solution {
             pq.add((pq.poll()+1));
         }
         
-        System.out.println(pq);
         long result =1;
         while(!pq.isEmpty()){
             result = (result * pq.poll()) % 1_000_000_007;
