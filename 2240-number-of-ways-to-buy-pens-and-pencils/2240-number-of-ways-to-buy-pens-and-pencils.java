@@ -4,6 +4,9 @@ class Solution {
      total/cost1    total -
     **/
     public long waysToBuyPensPencils(int total, int cost1, int cost2) {
+        if( cost2 > cost1){
+            return waysToBuyPensPencils( total, cost2, cost1);
+        }
         if( cost1 > total && cost2 >total)
             return 1;
         
